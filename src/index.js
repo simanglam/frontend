@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom'
 import { Route, Routes } from 'react-router';
 import { Mainpage } from './views/Mainpage';
+import Loginpage from './views/Loginpage';
+import Chatpage from './views/Chatpage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +16,8 @@ root.render(
       <Routes>
         <Route path="/" element={<Mainpage />} />
         <Route path="/App" element={<App />} />
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/chat" element={<Chatpage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -4,24 +4,18 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
 import axios from "axios"
 
-export default function Signup(props) {
+export default function Login(props) {
     const [signupAccount, setSignupAccount] = useState("")
-    const [signupNickname, setSignupNickname] = useState("")
     const [signupPassword, setSignupPassword] = useState("")
-    const [signupPasswordCheck, setSignupPasswordCheck] = useState("")
     const navigate = useNavigate()
 
     const signUp = async () => {
-        if(signupPassword !== signupPasswordCheck) {
-            alert("密碼不一致")
-            return
-        }
         try {
-            await axios.post("signup", {email: signupAccount, username: signupNickname, password: signupPassword})
+            await axios.post("http://localhost:4000/login", {email: signupAccount, password: signupPassword})
             navigate("/chat")
         }
         catch(e) {
-            e.response.status === 409 ? alert("帳號已存在") :
+            e.response.status === 403 ? alert("帳號密碼錯誤") : 
             console.log(e)
         }
     }
@@ -37,26 +31,15 @@ export default function Signup(props) {
             We'll never share your email with anyone else.
             </Form.Text>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicNickname">
-            <Form.Label>暱稱</Form.Label>
-            <Form.Control placeholder="Enter Nickname" value={signupNickname} onChange={(e) => {setSignupNickname(e.target.value)}}/>
-            <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-            </Form.Text>
-        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>密碼</Form.Label>
             <Form.Control type="password" placeholder="Password" value={signupPassword} onChange={(e) => {setSignupPassword(e.target.value)}}/>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>確認密碼</Form.Label>
-            <Form.Control type="password" placeholder="Password" value={signupPasswordCheck} onChange={(e) => {setSignupPasswordCheck(e.target.value)}}/>
-        </Form.Group>
         <Button variant="primary" onClick={signUp}>
-            註冊
+            登入
         </Button>
         <Form.Text className="text-muted">
-            已經有帳號？<Button onClick={() => {props.fun(false)}}>登入</Button>
+            還沒有帳號嗎？<Button onClick={() => {props.fun(true)}}>註冊</Button>
         </Form.Text>
     </Form>    
     )
