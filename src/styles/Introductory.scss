@@ -1,0 +1,56 @@
+@import "./BasicColor.scss";
+
+.introductory {
+    color: $fourth_color;
+
+    margin-top: 24px;
+    margin-bottom: 24px;
+
+    font-size: 64px;
+    font-weight: bold;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "top top top"
+    "left middle right"
+    "bottom bottom bottom";
+    min-height: 40vh;
+    height: fit-content;
+}
+
+.introductory-top {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 102px;
+    
+    min-height: 40vh;
+    margin-bottom: 20vh;
+
+    grid-area: top;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introductory-left {
+    grid-area: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introductory-middle {
+    grid-area: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.introductory-right {
+    grid-area: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

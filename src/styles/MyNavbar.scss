@@ -1,0 +1,36 @@
+@import "./BasicColor.scss";
+.navbar {
+  background-color: $main_color;
+  height: 64px;
+  .navbar-brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 96px;
+    font-size: larger;
+    height: 64px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: $fourth_color;
+    &:hover {
+      background-color: $secondary_color;
+    }
+  }
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    .nav-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 64px;
+      height: 64px;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: $fourth_color;
+      &:hover {
+        background-color: $secondary_color;
+      }
+    }
+  }
+}
