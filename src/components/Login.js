@@ -11,7 +11,7 @@ export default function Login(props) {
 
     const signUp = async () => {
         try {
-            await axios.post(config["api_url"] + "/login", {email: signupAccount, password: signupPassword})
+            await axios.post("/api/login", {email: signupAccount, password: signupPassword})
             navigate("/chat")
         }
         catch(e) {
