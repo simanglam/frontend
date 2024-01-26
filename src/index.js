@@ -7,7 +7,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { Route, Routes } from 'react-router';
 import { Mainpage } from './views/Mainpage';
 import Loginpage from './views/Loginpage';
-import Chatpage from './views/Chatpage';
+import ChatRoomList from './views/ChatRoomList';
+import ChatRoom from './views/ChatRoom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,9 +16,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Mainpage />} />
-        <Route path="/App" element={<App />} />
         <Route path="/login" element={<Loginpage />} />
-        <Route path="/chat" element={<Chatpage />} />
+        <Route path="/chat" element={<ChatRoomList />} />
+        <Route path="/chat/:id" element={<ChatRoom />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

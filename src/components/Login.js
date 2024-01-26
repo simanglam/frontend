@@ -1,8 +1,8 @@
 import { Button, Form } from "react-bootstrap"
-import { useEffect, useState } from "react"
-//import "../styles/Signup.scss"
+import { useState } from "react"
 import { useNavigate } from "react-router"
 import axios from "axios"
+import config from "./config"
 
 export default function Login(props) {
     const [signupAccount, setSignupAccount] = useState("")
@@ -11,15 +11,13 @@ export default function Login(props) {
 
     const signUp = async () => {
         try {
-            await axios.post("http://localhost:4000/login", {email: signupAccount, password: signupPassword})
+            await axios.post(config["api_url"] + "/login", {email: signupAccount, password: signupPassword})
             navigate("/chat")
         }
         catch(e) {
-            e.response.status === 403 ? alert("帳號密碼錯誤") : 
             console.log(e)
         }
     }
-
     
 
     return (
