@@ -17,7 +17,7 @@ export default function Signup(props) {
             return
         }
         try {
-            await axios.post("signup", {email: signupAccount, username: signupNickname, password: signupPassword})
+            await axios.post("/api/signup", {email: signupAccount, username: signupNickname, password: signupPassword})
             navigate("/chat")
         }
         catch(e) {

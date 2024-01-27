@@ -10,7 +10,7 @@ export default function Loginpage() {
     
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get("http://localhost:4000/login", { withCredentials: true })
+        axios.get("/api/login", { withCredentials: true })
         .then((res) => {
             if (res.status === 200) {
                 navigate("/chat")

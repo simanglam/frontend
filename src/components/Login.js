@@ -2,7 +2,6 @@ import { Button, Form } from "react-bootstrap"
 import { useState } from "react"
 import { useNavigate } from "react-router"
 import axios from "axios"
-import config from "./config"
 
 export default function Login(props) {
     const [signupAccount, setSignupAccount] = useState("")

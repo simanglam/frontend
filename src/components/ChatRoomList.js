@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import config from "./config"
 import { Card, Button } from "react-bootstrap"
 import "../styles/ChatRoomList.scss"
 import "../styles/BasicColor.scss"
@@ -15,7 +14,7 @@ export default function ChatRoomList(props) {
     }
 
     useEffect(() => {
-        axios.get(config["api_url"] + "/chat/chatrooms", { withCredentials: true, credentials: "cookie" })
+        axios.get("/api/chatrooms", { withCredentials: true, credentials: "cookie" })
             .then((response) => {
                 console.log(response)
                 setChatRoom(response.data)

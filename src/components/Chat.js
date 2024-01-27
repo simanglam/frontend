@@ -19,7 +19,7 @@ export default function Chat(props) {
                 alert(error)
             }
         })
-        await axios.post("http://localhost:4000/chat/chatroom/" + room + "/messages", {
+        await axios.post("/api/chatroom/" + room + "/messages", {
             text: message,
             createdAt: new Date(),
         }, { withCredentials: true, credentials: "cookie" })
