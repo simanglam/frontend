@@ -1,0 +1,29 @@
+@import "./BasicColor.scss";
+
+.login{
+    width: 100vw;
+    height: 80vh;
+
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form{
+        padding: 50px;
+        color: $fourth_color;
+        background-color: $secondary_color;
+        
+        border-radius: 12pt;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+
+    .form-text{
+            color: $fourth_color!important;
+    }
+}
