@@ -7,10 +7,10 @@ import Message from './Message'
 export default function Chat(props) {
     const socket = props.socket
     const room = props.room
-    const [Messages, setMessage] = useState([""])
+    const [Messages, setMessages] = useState([])
 
     const handleMessages = (message) => {
-        setMessage((Messages) => [...Messages, message])
+        setMessages((Messages) => [...Messages, message])
     }
 
     const handleClick = async (message) => {
@@ -28,11 +28,9 @@ export default function Chat(props) {
     useEffect(() => {
         socket.on("chat message", handleMessages)
 
-        axios.get("http://localhost:4000/chat/chatroom/" + room + "/messages", { withCredentials: true, credentials: "cookie" })
+        axios.get("/api/chatroom/" + room + "/messages", { withCredentials: true, credentials: "cookie" })
             .then((response) => {
-                response.data.messages.map((message) => {
-                    handleMessages(message.text)
-                })
+                setMessages(response.data)
             })
             .catch((error) => {
                 console.log(error)
@@ -41,7 +39,7 @@ export default function Chat(props) {
         return(() => {
             socket.off("chat message", handleMessages)
         })
-    }, [socket])
+    }, [room, socket])
 
 
     return(
