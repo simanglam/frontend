@@ -21,18 +21,6 @@ export default function ChatRoomList(props) {
             })
             .catch((error) => {
                 console.log(error)
-                setChatRoom([
-                    {
-                        "id": "clrj9f6l50000o9vc1nip29nz",
-                        "description": "Test",
-                        "name": "Test"
-                    },
-                    {
-                        "id": "clrjez36y0000803uo6wk5qau",
-                        "description": "Test2",
-                        "name": "Test2"
-                    }
-                ])
             })
     }, [])
 

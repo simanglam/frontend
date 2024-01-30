@@ -2,16 +2,16 @@ import axios from 'axios';
 import { useEffect, useState } from 'react'
 import MessagesInput from './MessageInput'
 import Message from './Message'
+import socket from './Socket'
 
 
 export default function Chat(props) {
-    const socket = props.socket
     const room = props.room
     const [Messages, setMessages] = useState([])
 
     const handleMessages = (message) => {
-        console.log(message)
         setMessages((Messages) => [...Messages, JSON.parse(message)])
+        console.log(Messages)
     }
 
     const handleClick = async (message) => {
@@ -22,20 +22,35 @@ export default function Chat(props) {
     }
 
     useEffect(() => {
-        socket.on("chat message", handleMessages)
+        socket.connect()
+        
+        return(() =>{
+            socket.disconnect()
+        })
+    }, [])
 
+    useEffect(() => {
         axios.get("/api/chatroom/" + room + "/messages", { withCredentials: true, credentials: "cookie" })
             .then((response) => {
+                console.log(response.data)
                 setMessages(response.data)
             })
             .catch((error) => {
                 console.log(error)
             })
+    }, [room])
+
+    useEffect(() => {
+        socket.emit("add room", room)
+        console.log(`Room added ${room}`)
+
+        socket.on("chat message", handleMessages)
+    
 
         return(() => {
             socket.off("chat message", handleMessages)
         })
-    }, [room, socket])
+    }, [room, handleMessages])
 
 
     return(

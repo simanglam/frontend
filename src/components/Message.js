@@ -1,12 +1,11 @@
 
 
 export default function Messages(props){
-    let count = 0
     return(
         <>
             {props.messages.map((message) => {
                 return(
-                    <h1 key={count++}>{message}</h1>
+                    <h1 key={message.id}>{message.text} - {message.author}</h1>
                 )
             })}
         </>
