@@ -10,15 +10,11 @@ export default function Chat(props) {
     const [Messages, setMessages] = useState([])
 
     const handleMessages = (message) => {
-        setMessages((Messages) => [...Messages, message])
+        console.log(message)
+        setMessages((Messages) => [...Messages, JSON.parse(message)])
     }
 
     const handleClick = async (message) => {
-        socket.emit("chat message", message, (error) => {
-            if (error) {
-                alert(error)
-            }
-        })
         await axios.post("/api/chatroom/" + room + "/messages", {
             text: message,
             createdAt: new Date(),
