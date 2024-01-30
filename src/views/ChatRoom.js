@@ -1,7 +1,7 @@
-import MyNavbar from "../components/MyNavbar"
-import Chat from "../components/Chat"
 import { useParams } from "react-router"
-import { useEffect, useState } from "react"
+
+import Chat from "../components/Chat"
+import MyNavbar from "../components/MyNavbar"
 
 
 export default function ChatRoom(props) {

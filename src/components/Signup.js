@@ -1,8 +1,9 @@
-import { Button, Form } from "react-bootstrap"
-import { useState } from "react"
-import "../styles/Login.scss"
-import { useNavigate } from "react-router"
 import axios from "axios"
+import { useState } from "react"
+import { useNavigate } from "react-router"
+import { Button, Form } from "react-bootstrap"
+
+import "../styles/Login.scss"
 
 export default function Signup(props) {
     const [signupAccount, setSignupAccount] = useState("")

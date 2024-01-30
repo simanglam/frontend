@@ -1,6 +1,5 @@
 import "../styles/BasicColor.scss"
 import "../styles/Introductory.scss"
-import { Row, Col, Container } from 'react-bootstrap'
 
 export default function Introductory() {
 

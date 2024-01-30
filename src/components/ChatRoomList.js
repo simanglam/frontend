@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
 import axios from "axios"
+import { useEffect, useState } from "react"
 import { Card, Button } from "react-bootstrap"
-import "../styles/ChatRoomList.scss"
+
 import "../styles/BasicColor.scss"
+import "../styles/ChatRoomList.scss"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function ChatRoomList(props) {

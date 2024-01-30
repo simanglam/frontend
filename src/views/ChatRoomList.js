@@ -1,6 +1,7 @@
+import { useNavigate } from "react-router"
+
 import MyNavbar from "../components/MyNavbar"
 import ChatRoomList from "../components/ChatRoomList"
-import { useNavigate } from "react-router"
 
 export default function Chatpage() {
 

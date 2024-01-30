@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import MyNavbar from "../components/MyNavbar";
-import Signup from "../components/Signup";
-import Login from "../components/Login";
-import axios from "axios";
-import { useNavigate } from "react-router";
+import axios from "axios"
+import { useNavigate } from "react-router"
+import { useEffect, useState } from "react"
+
+import Login from "../components/Login"
+import Signup from "../components/Signup"
+import MyNavbar from "../components/MyNavbar"
 
 export default function Loginpage() {
     const [signup, setSignup] = useState(false);

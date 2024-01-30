@@ -1,5 +1,6 @@
-import { useNavigate } from "react-router";
-import { Navbar, NavbarBrand, Nav } from "react-bootstrap";
+import { useNavigate } from "react-router"
+import { Navbar, NavbarBrand, Nav } from "react-bootstrap"
+
 import "../styles/BasicColor.scss"
 import "../styles/MyNavbar.scss"
 
