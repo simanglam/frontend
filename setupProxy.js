@@ -20,6 +20,7 @@ module.exports = function(app) {
           changeOrigin: true,
           cookieDomainRewrite: "localhost",
           withCredentials: true,
+          ws: true
         })
       );
 }
