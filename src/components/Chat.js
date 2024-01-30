@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import MessagesInput from './MessageInput'
 import Message from './Message'
 import socket from './Socket'
@@ -9,10 +9,9 @@ export default function Chat(props) {
     const room = props.room
     const [Messages, setMessages] = useState([])
 
-    const handleMessages = (message) => {
+    const handleMessages = useCallback((message) => {
         setMessages((Messages) => [...Messages, JSON.parse(message)])
-        console.log(Messages)
-    }
+    }, [])
 
     const handleClick = async (message) => {
         await axios.post("/api/chatroom/" + room + "/messages", {
