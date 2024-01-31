@@ -20,7 +20,7 @@ export default function Loginpage() {
         .catch((e) => {
             console.log(e)
         })
-    }, [])
+    }, [navigate])
     
     return (
     <>
