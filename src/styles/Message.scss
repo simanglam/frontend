@@ -1,0 +1,19 @@
+@import "./BasicColor.scss";
+
+.messages{
+    width: 100vw;
+
+    #message{
+        color: $fourth_color;
+        
+        #left-col{
+            display: flex;
+            justify-content: left;
+        }
+
+        #right-col{
+            display: flex;
+            justify-content: right;
+        }
+    }
+}
