@@ -1,4 +1,9 @@
 import React, { useState } from 'react'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+
+import "../styles/MessageInput.scss"
 
 export default function MessagesInput(props) {
 
@@ -8,9 +13,11 @@ export default function MessagesInput(props) {
     }
 
     return(
-        <>
-            <input type="text" onChange={handleChange} value={send} />
-            <button onClick={() => {props.send(send); setSend("")}}>Send</button>
-        </>
+        <div className='messageinput'>
+            <InputGroup>
+                <Form.Control value={send} onChange={handleChange}></Form.Control>
+                <Button onClick={() => {props.send(send); setSend("")}}> Send </Button>
+            </InputGroup>
+        </div>
     )
 }

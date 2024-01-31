@@ -1,0 +1,17 @@
+@import "./BasicColor.scss";
+
+.messageinput{
+    position: fixed;
+    z-index: 1;
+    
+    bottom: 12pt;
+    left: 24pt;
+    right: 24pt;
+    width: calc(100vw - 48pt);
+
+    background-color: $main_color;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
